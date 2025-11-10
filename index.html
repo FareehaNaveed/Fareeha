@@ -6,8 +6,8 @@
     <title>Fareeha Naveed | Cybersecurity Analyst & Penetration Tester</title>
     <!-- SEO & Metadata -->
     <meta name="description" content="Fareeha Naveed professional portfolio: results-driven Cybersecurity Analyst and Penetration Tester specializing in ethical hacking and red teaming.">
-    <meta name="keywords" content="Cybersecurity, Penetration Tester, Ethical Hacking, Red Teaming, Fareeha Naveed , Burp Suite, Nmap">
-    <meta name="author" content="Fareeha Naveed">
+    <meta name="keywords" content="Cybersecurity, Penetration Tester, Ethical Hacking, Red Teaming, M.Umer Imran, Burp Suite, Nmap">
+    <meta name="author" content="Fareeha Naveed ">
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
@@ -21,13 +21,16 @@
     <style>
         /* --- 1. Global Variables & Reset --- */
         :root {
-            /* Colors */
-            --clr-dark-bg: #0A0A0A;
-            --clr-card-bg: #1A1A1A;
-            --clr-text-light: #E0E0E0;
+            /* Colors (lightened background tones) */
+            /* Main page background — moved from pure black to a dark charcoal for a lighter feel */
+            --clr-dark-bg: #0f1724; /* was #0A0A0A */
+            /* Card / section background — slightly lighter than before for improved contrast */
+            --clr-card-bg: #0f1724; /* was #1A1A1A */
+            /* Keep text light but slightly warmer */
+            --clr-text-light: #E6EEF1;
             /* === TEAL THEME === */
-            --clr-accent-primary-teal: #00F5D4;  
-            --clr-accent-secondary-teal: #00B2B2; 
+            --clr-accent-primary-teal: #0f6e86ff;  
+            --clr-accent-secondary-teal: #0e5c74; 
             /* ================= */
             --clr-border: #333;
             
@@ -137,6 +140,40 @@
                 min-height: auto;
              }
         }
+        /* Hacker Rain Canvas & Message Box */
+        #rainCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* allow clicks through canvas */
+            z-index: 0;
+            display: block;
+        }
+
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00FF41;
+            color: #00FF41;
+            padding: 12px 18px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #760428;
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .message-box.visible { opacity: 1; }
+
+        /* Ensure main content sits above the canvas */
+        main, footer { position: relative; z-index: 1; }
 
         .dark-section {
             background-color: var(--clr-card-bg);
@@ -613,10 +650,13 @@
 </head>
 <body>
 
+    <!-- Hacker rain canvas (background effect) -->
+    <canvas id="rainCanvas" aria-hidden="true"></canvas>
+
     <!-- 1. Navigation -->
     <nav id="navbar">
         <div class="container">
-            <a href="#hero" class="logo">FAREEHA NAVEED </a>
+            <a href="#hero" class="logo">Fareeha</a>
             <ul class="nav-links">
                 <!-- Sections must have an ID that matches the href for scroll-spy to work -->
                 <li><a href="#hero">Home</a></li> <!-- Added Home link -->
@@ -626,7 +666,6 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#certifications">Certs</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#resume">Resume</a></li>
             </ul>
         </div>
     </nav>
@@ -638,11 +677,11 @@
         <section id="hero" class="full-height section-padding"> <!-- Added section-padding for scroll-spy -->
             <div class="hero-content container" data-aos="fade-up">
                 <div class="hero-text">
-                    <h1>FAREEHA NAVEED </h1>
+                    <h1>Fareeha Naveed</h1>
                     <h2><span id="role-rotator">Cybersecurity Analyst</span></h2>
                     <p class="subtitle">Results-driven cybersecurity and ethical hacking enthusiast dedicated to fortifying digital defenses.</p>
                     <div class="cta-buttons">
-                        <a href="#projects" class="btn primary-btn">Projects</a>
+                        <a href="#projects" class="btn primary-btn">View My Work</a>
                         <a href="#contact" class="btn secondary-btn">Contact Me</a>
                     </div>
                 </div>
@@ -659,17 +698,17 @@
         <!-- 2.2 About Section -->
         <section id="about" class="section-padding">
             <div class="container" data-aos="fade-right">
-                <h3 class="section-title"> About Me</h3>
-                <p>Hello! I'm Fareeha Naveed, a dedicated Cybersecurity Analyst and Penetration Tester based in Lahore, Pakistan. My passion lies in ethical hacking, red teaming, and discovering vulnerabilities before the bad actors do. I'm proficient with industry-leading tools like Burp Suite, OWASP ZAP, Metasploit, and Nmap.</p>
-                <p>I'm constantly pursuing knowledge, currently involved in active projects like developing MITRE ATT&CK case studies to understand real-world threat actors, and building Cyberster AI, an intelligent security assistant. My goal is to share knowledge and contribute to a safer digital ecosystem.</p>
-                <p class="contact-info">Location: Lahore, Pakistan | Email: <a href="mailto:fariyaghul@gmail.com">fariyaghul@gmail.com</a></p>
+                <h3 class="section-title">🕵️‍♂️ About Me</h3>
+                <p>Hello! I'm **Fareeha Naveed **, a dedicated Cybersecurity Analyst and Penetration Tester based in **Lahore, Pakistan**. My passion lies in ethical hacking, red teaming, and discovering vulnerabilities before the bad actors do. I'm proficient with industry-leading tools like **Burp Suite**, **OWASP ZAP**, **Metasploit**, and **Nmap**.</p>
+                <p>I'm constantly pursuing knowledge, currently involved in active projects like developing **MITRE ATT&CK case studies** to understand real-world threat actors, and building **Cyberster AI**, an intelligent security assistant. My goal is to share knowledge and contribute to a safer digital ecosystem.</p>
+                <p class="contact-info">Location: Lahore, Pakistan | Email: <a href="mailto:cybersec716@gmail.com">cybersec716@gmail.com</a></p>
             </div>
         </section>
 
         <!-- 2.3 Skills Section -->
         <section id="skills" class="section-padding dark-section">
             <div class="container" data-aos="fade-left">
-                <h3 class="section-title">Core Skills</h3>
+                <h3 class="section-title">🛠️ Core Skills</h3>
                 <div class="skills-grid">
                     <div class="skill-category" data-aos="fade-up">
                         <h4>🛡️ Cybersecurity & PenTesting</h4>
@@ -774,22 +813,22 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h4>B.S. Software Engineering (Ongoing)</h4>
-                            <h5>Lahore College for Women University | 2024 – 2028</h5>
+                            <h4>B.S. Computer Science (Ongoing)</h4>
+                                <p>Virtual University of Pakistan | 2025 – 2029</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h4>D</h4>
-                            <h5>PNY Trainings | May 2025 – Oct 2025</h5>
+                            <h4>Diploma in Advanced Cybersecurity (6 Months)</h4>
+                            <p>PNY Trainings | May 2025 – Oct 2025</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h4>Intermediate in Pre-Medical </h4>
-                            <h5>Stars College | 2022 – 2024</h5>
+                            <h4>Intermediate in Information Technology</h4>
+                            <p>Aspire College Lahore | 2022 – 2024</p>
                         </div>
                     </div>
                 </div>
@@ -822,7 +861,7 @@
             <p>I'm always open to discussing new projects, collaboration opportunities, or technical challenges.</p>
             
             <!-- Contact Form (Uses mailto for direct email link) -->
-            <form action="mailto:fariyaghul@gmail.com" method="POST" enctype="text/plain" data-aos="fade-up">
+            <form action="mailto:cybersec716@gmail.com" method="POST" enctype="text/plain" data-aos="fade-up">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
@@ -832,17 +871,17 @@
             <div class="social-links" data-aos="fade-up" data-aos-delay="200">
                 <!-- Using inline SVGs for professional icons -->
                 <a href="#" target="_blank" title="LinkedIn">
-                    <svg xmlns="https://www.linkedin.com/in/fareeha-naveed-96818935a/" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
                 <a href="#" target="_blank" title="GitHub">
-                    <svg xmlns="https://github.com/FareehaNaveed" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22V18a4 4 0 0 0-3-3.86 4 4 0 0 0-3 3.86v4"/><path d="M12 2C6.5 2 2 6.5 2 12c0 4.4 2.8 8.1 7 9.4 0.5 0.1 0.7-0.2 0.7-0.5v-2c-2.8 0.5-3.4-1.2-3.4-1.2-0.5-1.3-1.2-1.7-1.2-1.7-1-0.7 0.1-0.7 0.1-0.7 1.1 0.1 1.7 1.1 1.7 1.1 1 1.6 2.5 1.1 3.1 0.8 0.1-0.7 0.4-1.1 0.8-1.4-2.4-0.3-4.9-1.2-4.9-5.4 0-1.2 0.4-2.2 1.1-3.0 -0.1-0.3-0.5-1.5 0.1-3.0 0 0 0.9-0.3 3 1.1 0.8-0.2 1.6-0.3 2.4-0.3s1.6 0.1 2.4 0.3c2.1-1.4 3-1.1 3-1.1 0.6 1.5 0.2 2.7 0.1 3.0 0.7 0.8 1.1 1.8 1.1 3.0 0 4.2-2.5 5.1-4.9 5.4 0.4 0.4 0.8 1.1 0.8 2.2v3.3c0 0.3 0.2 0.6 0.7 0.5C19.2 20.1 22 16.4 22 12 22 6.5 17.5 2 12 2z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22V18a4 4 0 0 0-3-3.86 4 4 0 0 0-3 3.86v4"/><path d="M12 2C6.5 2 2 6.5 2 12c0 4.4 2.8 8.1 7 9.4 0.5 0.1 0.7-0.2 0.7-0.5v-2c-2.8 0.5-3.4-1.2-3.4-1.2-0.5-1.3-1.2-1.7-1.2-1.7-1-0.7 0.1-0.7 0.1-0.7 1.1 0.1 1.7 1.1 1.7 1.1 1 1.6 2.5 1.1 3.1 0.8 0.1-0.7 0.4-1.1 0.8-1.4-2.4-0.3-4.9-1.2-4.9-5.4 0-1.2 0.4-2.2 1.1-3.0 -0.1-0.3-0.5-1.5 0.1-3.0 0 0 0.9-0.3 3 1.1 0.8-0.2 1.6-0.3 2.4-0.3s1.6 0.1 2.4 0.3c2.1-1.4 3-1.1 3-1.1 0.6 1.5 0.2 2.7 0.1 3.0 0.7 0.8 1.1 1.8 1.1 3.0 0 4.2-2.5 5.1-4.9 5.4 0.4 0.4 0.8 1.1 0.8 2.2v3.3c0 0.3 0.2 0.6 0.7 0.5C19.2 20.1 22 16.4 22 12 22 6.5 17.5 2 12 2z"/></svg>
                 </a>
-                <a href="mailto:fariyaghul@gmail.com" title="Email">
+                <a href="mailto:fariyaghul@gmail.com title="Email">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.83 1.83 0 0 1-2.06 0L2 7"/></svg>
                 </a>
             </div>
 
-            <p class="copyright">&copy; 2025@ Fareeha Naveed. Designed for Cyber Excellence.</p>
+            <p class="copyright">&copy; 2025 Fareeha Naveed. Designed for Cyber Excellence.</p>
         </div>
     </footer>
 
@@ -975,9 +1014,65 @@
             });
         });
     </script>
+</script>
 
+    <!-- Hacker Rain Effect Script -->
+    <script>
+    (function() {
+        const canvas = document.getElementById('rainCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        const chars = '0123456789ABCDEF!@#$%^&*()_+=-{}[]|:;"<>,.?/';
+        const fontSize = 16;
+
+        // read teal color from CSS variable (fallback to a light teal)
+        const rootStyle = getComputedStyle(document.documentElement);
+        const rainColor = (rootStyle.getPropertyValue('--clr-accent-primary-teal') || '#00F5D4').trim() || '#00F5D4';
+
+        let W = canvas.width = window.innerWidth;
+        let H = canvas.height = window.innerHeight;
+        let columns = Math.floor(W / fontSize);
+        let yPositions = Array(columns).fill(0).map(() => Math.floor(Math.random() * H / fontSize));
+
+        ctx.font = `${fontSize}px monospace`;
+        ctx.textAlign = 'left';
+
+        function initializeCanvas(){
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+            columns = Math.floor(W / fontSize);
+            yPositions = Array(columns).fill(0).map(() => Math.floor(Math.random() * H / fontSize));
+            ctx.font = `${fontSize}px monospace`;
+        }
+
+        function drawRain(){
+            ctx.fillStyle = 'rgba(0,0,0,0.05)';
+            ctx.fillRect(0, 0, W, H);
+            ctx.fillStyle = rainColor;
+
+            for (let i = 0; i < columns; i++){
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                const x = i * fontSize;
+                const y = yPositions[i] * fontSize;
+                ctx.fillText(text, x, y);
+
+                if (y > H + Math.random() * 1000) {
+                    yPositions[i] = 0;
+                } else {
+                    yPositions[i]++;
+                }
+            }
+
+            requestAnimationFrame(drawRain);
+        }
+
+        window.addEventListener('resize', initializeCanvas);
+        window.addEventListener('load', function(){
+            initializeCanvas();
+            drawRain();
+        });
+    })();
+    </script>
 </body>
-
 </html>
-
-
